@@ -13,7 +13,7 @@ Settings.llm = MistralAI(model="mistral-small", api_key=mistral_key)
 Settings.embed_model = MistralAIEmbedding(model_name='mistral-embed', api_key=mistral_key)
 
 # rebuild storage context
-storage_context = StorageContext.from_defaults(persist_dir="NewStore")
+storage_context = StorageContext.from_defaults(persist_dir="Turni")
 index = load_index_from_storage(storage_context, embed_model=MistralAIEmbedding(model_name='mistral-embed', api_key=mistral_key))
 query_engine = index.as_query_engine(similarity_top_k=2)
 
@@ -58,7 +58,7 @@ if prompt := st.chat_input("Cosa vuoi sapere?"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-    prompt_italian=str(prompt + " Rispondi in italiano")
+    prompt_italian=str(prompt + ". Rispondi sempre e solo in italiano")
     
     raw_response = query_engine.query(prompt_italian)
     
@@ -76,3 +76,5 @@ if prompt := st.chat_input("Cosa vuoi sapere?"):
                 if file_name:
                     st.write("Guarda questo documento --> ", file_name)
                     break  # Exit the loop once the file_name is found
+                    
+    st.session_state.messages.append({"role": "assistant", "content": response})
