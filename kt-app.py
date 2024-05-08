@@ -27,8 +27,9 @@ st.set_page_config(
 )
 
 # Display title and description
-st.markdown("<h1 style='color: #007FA4; text-align: center;'> Chatbot</h1>", unsafe_allow_html=True)
-st.write("<h4 style='text-align: center;'>Chiedi a me tutto quello che chiederesti a Rachele, e lasciala dormire! 🌊😊</h4>", unsafe_allow_html=True)
+st.markdown("<h1 style='color: #007FA4; text-align: center;'> Hey, come posso aiutarti?</h1>", unsafe_allow_html=True)
+st.write("<h4 style='text-align: center;'>Sono RachelBot, l'assistente AI del Kontiki</h4>", unsafe_allow_html=True)
+st.write("<h6 style='text-align: center;'>Chiedi a me tutto quello che chiederesti a Rachele, così non la disturberai! 🌊😊</h6>", unsafe_allow_html=True)
 
 # Initialize chat history
 if "messages" not in st.session_state:
