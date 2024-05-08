@@ -53,60 +53,22 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
         
+column1, column2, column3 = st.columns([1,1,1])
 
-# Define button prompts
-prompts = {
-    "Che cos'è il Kontiki?": "Che cos'è il Kontiki?",
-    "Come si fa il turno bar?": "Come si fa il turno bar?",
-    "Quali piatti di pasta abbiamo in menù?": "Quali piatti di pasta abbiamo in menù?"
-}
-
-# Create buttons
-columns = st.columns(len(prompts))
-for i, (key, value) in enumerate(prompts.items()):
-    with columns[i]:
-        if st.button(key):
-            prompt = value
-
-# Create chat input
-prompt_input = st.chat_input("Cosa vuoi sapere?")
-
-# Check if there is a prompt from either button click or chat input
-if 'prompt' in locals():
-    prompt = prompt
-elif prompt_input:
-    prompt = prompt_input
-else:
-    prompt = None
-
-# If there is a prompt, proceed with the conversation
-if prompt:
+#SUggest some prompts. Once clicked, the prompt will be added to the text input box.
+with column1:
+    if st.button("Che cos'è il Kontiki?"):
+        prompt = "Che cos'è il Kontiki?"
+with column2:
+    if st.button("Come si fa il turno bar?"):
+        prompt = "Come si fa il turno bar?"
+with column3:
+    if st.button("Quali piatti di pasta abbiamo in menù?"):
+        prompt = "Quali piatti di pasta abbiamo in menù?"
+    
+# React to user input
+if prompt := st.chat_input("Cosa vuoi sapere?"):
     # Display user message in chat message container
-    with st.chat_message("user"):
-        st.markdown(prompt)
-    # Add user message to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt})
-
-    prompt_italian = str(prompt + ". Rispondi sempre e solo in italiano")
-    
-    raw_response = query_engine.query(prompt_italian)
-    
-    # Display the response.
-    response_text = raw_response.response
-    response = f"{response_text}"
-    
-    # Display assistant response in chat message container
-    with st.chat_message("assistant"):
-        st.markdown(response)
-        # Iterate over keys in the metadata dictionary
-        with st.expander("Più info"):
-            for key, value in raw_response.metadata.items():
-                file_name = value.get('file_name')
-                if file_name:
-                    st.write("Guarda questo documento --> ", file_name)
-                    break  # Exit the loop once the file_name is found
-                    
-    st.session_state.messages.append({"role": "assistant", "content": response})# Display user message in chat message container
     st.chat_message("user").markdown(prompt)
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
