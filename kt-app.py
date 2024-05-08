@@ -58,10 +58,10 @@ if prompt := st.chat_input("Cosa vuoi sapere?"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-    response = query_engine.query(prompt)
+    raw_response = query_engine.query(prompt)
     
     # Display the response.
-    response_text = response.response
+    response_text = raw_response.response
     response = f"{response_text}"
     
     # Display assistant response in chat message container
@@ -69,7 +69,7 @@ if prompt := st.chat_input("Cosa vuoi sapere?"):
         st.markdown(response)
         # Iterate over keys in the metadata dictionary
         with st.expander("Più info"):
-            for key, value in response.metadata.items():
+            for key, value in raw_response.metadata.items():
                 file_name = value.get('file_name')
                 if file_name:
                     st.write("Guarda questo documento --> ", file_name)
