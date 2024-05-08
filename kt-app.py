@@ -15,7 +15,7 @@ query_engine = index.as_query_engine(similarity_top_k=2)
 
 # Define LLM and embedding model
 Settings.llm = MistralAI(model="mistral-small", api_key=mistral_key)
-Settings.embed_model = MistralAIEmbedding(model_name='mistral-embed', api_key="WC69QqfKgGpkKoyxjm1n3pOEDXE0m6pC")
+Settings.embed_model = MistralAIEmbedding(model_name='mistral-embed', api_key=mistral_key)
 
 ################################################################################################################
 
