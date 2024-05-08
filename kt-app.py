@@ -39,4 +39,4 @@ if user_input:
     response = query_engine.query(user_input)
     
     # Display the response.
-    st.write(response.response)
+    st.write(response)
