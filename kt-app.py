@@ -43,19 +43,9 @@ st.write("<h4 style='text-align: center;'>Sono RachelBot, l'assistente AI del Ko
 st.write("<h6 style='text-align: center;'>Chiedi a me tutto quello che chiederesti a Rachele, così non la disturberai! Qui sotto trovi degli esempi di domande 🌊😊</h6>", unsafe_allow_html=True)
 
 st.markdown('#') 
+st.markdown('#') 
 
-column1, column2, column3 = st.columns([1,1,1])
-
-#SUggest some prompts. Once clicked, the prompt will be added to the text input box.
-with column1:
-    if st.button("Che cos'è il Kontiki?"):
-        prompt = "Che cos'è il Kontiki?"
-with column2:
-    if st.button("Come si fa il turno bar?"):
-        prompt = "Come si fa il turno bar?"
-with column3:
-    if st.button("Quali piatti di pasta abbiamo in menù?"):
-        prompt = "Quali piatti di pasta abbiamo in menù?"
+st.write("Prova una di queste domande:   \n- Che cos'è il Kontiki?   \n- Come si fa il turno bar?   \n- Quali piatti di pasta abbiamo in menù?")
 
 # Initialize chat history
 if "messages" not in st.session_state:
