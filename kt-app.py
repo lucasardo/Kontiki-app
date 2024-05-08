@@ -29,13 +29,13 @@ st.set_page_config(
 col1, col2, col3 = st.beta_columns([1,6,1])
 
 with col1:
-st.write("")
+    st.write("")
 
 with col2:
-st.image("https://portale.arci.it/media/loghi/GIUSTIZIA_CLIMATICA_ORA_.jpg", width=100)
+    st.image("https://portale.arci.it/media/loghi/GIUSTIZIA_CLIMATICA_ORA_.jpg", width=100)
 
 with col3:
-st.write("")
+    st.write("")
 
 # Display title and description
 st.markdown("<h1 style='color: #007FA4; text-align: center;'> Hey, come posso aiutarti?</h1>", unsafe_allow_html=True)
