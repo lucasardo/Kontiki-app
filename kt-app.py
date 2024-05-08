@@ -46,15 +46,7 @@ if prompt := st.chat_input("Cosa vuoi sapere?"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-with st.chat_message("assistant"):
-        st.markdown(response)
-    
-# Create a text input box for the user to ask a question.
-user_input = st.text_input("What would you like to know?")
-
-if user_input:
-
-    response = query_engine.query(user_input)
+    response = query_engine.query(prompt)
     
     # Display the response.
     response_text = response.response
