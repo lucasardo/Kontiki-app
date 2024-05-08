@@ -42,6 +42,8 @@ st.markdown("<h1 style='color: #007FA4; text-align: center;'> Hey, come posso ai
 st.write("<h4 style='text-align: center;'>Sono RachelBot, l'assistente AI del Kontiki</h4>", unsafe_allow_html=True)
 st.write("<h6 style='text-align: center;'>Chiedi a me tutto quello che chiederesti a Rachele, così non la disturberai! Qui sotto trovi degli esempi di domande 🌊😊</h6>", unsafe_allow_html=True)
 
+st.markdown('##') 
+
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
