@@ -26,7 +26,16 @@ st.set_page_config(
     layout="wide"  # Set layout to wide for better organization
 )
 
+col1, col2, col3 = st.beta_columns([1,6,1])
+
+with col1:
+st.write("")
+
+with col2:
 st.image("https://portale.arci.it/media/loghi/GIUSTIZIA_CLIMATICA_ORA_.jpg", width=100)
+
+with col3:
+st.write("")
 
 # Display title and description
 st.markdown("<h1 style='color: #007FA4; text-align: center;'> Hey, come posso aiutarti?</h1>", unsafe_allow_html=True)
