@@ -58,7 +58,9 @@ if prompt := st.chat_input("Cosa vuoi sapere?"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-    raw_response = query_engine.query(prompt)
+    prompt_italian=str(prompt + " Rispondi in italiano")
+    
+    raw_response = query_engine.query(prompt_italian)
     
     # Display the response.
     response_text = raw_response.response
