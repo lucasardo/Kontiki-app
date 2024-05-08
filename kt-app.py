@@ -6,13 +6,15 @@ from llama_index.core import Settings, SimpleDirectoryReader, VectorStoreIndex
 from llama_index.llms.mistralai import MistralAI
 from llama_index.embeddings.mistralai import MistralAIEmbedding
 
+mistral_key = st.secrets["mistral_key"]
+
 # rebuild storage context
 storage_context = StorageContext.from_defaults(persist_dir="Store")
-index = load_index_from_storage(storage_context, embed_model=MistralAIEmbedding(model_name='mistral-embed', api_key="WC69QqfKgGpkKoyxjm1n3pOEDXE0m6pC"))
+index = load_index_from_storage(storage_context, embed_model=MistralAIEmbedding(model_name='mistral-embed', api_key=mistral_key))
 query_engine = index.as_query_engine(similarity_top_k=2)
 
 # Define LLM and embedding model
-Settings.llm = MistralAI(model="mistral-small", api_key="WC69QqfKgGpkKoyxjm1n3pOEDXE0m6pC")
+Settings.llm = MistralAI(model="mistral-small", api_key=mistral_key)
 Settings.embed_model = MistralAIEmbedding(model_name='mistral-embed', api_key="WC69QqfKgGpkKoyxjm1n3pOEDXE0m6pC")
 
 ################################################################################################################
