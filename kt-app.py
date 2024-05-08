@@ -79,7 +79,7 @@ if prompt := st.chat_input("Cosa vuoi sapere?"):
             for key, value in raw_response.metadata.items():
                 file_name = value.get('file_name')
                 if "Turni" in file_name:
-                    st.write("Guarda questo documento: [Kontiki Bar e Servizio](https://share.streamlit.io/mesmith027/streamlit_webapps/main/MC_pi/streamlit_app.pyhttps://docs.google.com/document/d/13P4xlpopMB81XRbelK_A9eBGWO9zmiPKf_2PozQdiqY/edit#heading=h.qz1ydsm5h1ne)")
+                    st.write("Guarda questo documento: [Kontiki Bar e Servizio](https://docs.google.com/document/d/13P4xlpopMB81XRbelK_A9eBGWO9zmiPKf_2PozQdiqY/edit#heading=h.qz1ydsm5h1ne)")
                     break  # Exit the loop once the file_name is found
                     
     st.session_state.messages.append({"role": "assistant", "content": response})
