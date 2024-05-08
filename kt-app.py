@@ -51,7 +51,7 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
         
-column1, column2, column3 = st.columns([5,5,5])
+column1, column2, column3 = st.columns([1,1,1])
 
 #SUggest some prompts. Once clicked, the prompt will be added to the text input box.
 with column1:
