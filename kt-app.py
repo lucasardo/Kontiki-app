@@ -51,13 +51,18 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
         
+column1, column2, column3 = st.columns([5,5,5])
+
 #SUggest some prompts. Once clicked, the prompt will be added to the text input box.
-if st.button("Che cos'è il Kontiki?"):
-    prompt = "Che cos'è il Kontiki?"
-elif st.button("Come si fa il turno bar?"):
-    prompt = "Come si fa il turno bar?"
-elif st.button("Quali piatti di pasta abbiamo in menù?"):
-    prompt = "Quali piatti di pasta abbiamo in menù?"
+with column1:
+    if st.button("Che cos'è il Kontiki?"):
+        prompt = "Che cos'è il Kontiki?"
+with column2:
+    if st.button("Come si fa il turno bar?"):
+        prompt = "Come si fa il turno bar?"
+with column3:
+    if st.button("Quali piatti di pasta abbiamo in menù?"):
+        prompt = "Quali piatti di pasta abbiamo in menù?"
     
 # React to user input
 if prompt := st.chat_input("Cosa vuoi sapere?"):
