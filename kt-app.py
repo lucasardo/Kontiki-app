@@ -40,7 +40,7 @@ with col3:
 # Display title and description
 st.markdown("<h1 style='color: #007FA4; text-align: center;'> Hey, come posso aiutarti?</h1>", unsafe_allow_html=True)
 st.write("<h4 style='text-align: center;'>Sono RachelBot, l'assistente AI del Kontiki</h4>", unsafe_allow_html=True)
-st.write("<h6 style='text-align: center;'>Chiedi a me tutto quello che chiederesti a Rachele, così non la disturberai! 🌊😊</h6>", unsafe_allow_html=True)
+st.write("<h6 style='text-align: center;'>Chiedi a me tutto quello che chiederesti a Rachele, così non la disturberai! Qui sotto trovi degli esempi di domande 🌊😊</h6>", unsafe_allow_html=True)
 
 # Initialize chat history
 if "messages" not in st.session_state:
@@ -50,7 +50,15 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-
+        
+#SUggest some prompts. Once clicked, the prompt will be added to the text input box.
+if st.button("Che cos'è il Kontiki?"):
+    prompt = "Che cos'è il Kontiki?"
+elif st.button("Come si fa il turno bar?"):
+    prompt = "Come si fa il turno bar?"
+elif st.button("Quali piatti di pasta abbiamo in menù?"):
+    prompt = "Quali piatti di pasta abbiamo in menù?"
+    
 # React to user input
 if prompt := st.chat_input("Cosa vuoi sapere?"):
     # Display user message in chat message container
