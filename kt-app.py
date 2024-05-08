@@ -26,6 +26,8 @@ st.set_page_config(
     layout="wide"  # Set layout to wide for better organization
 )
 
+st.image("https://portale.arci.it/media/loghi/GIUSTIZIA_CLIMATICA_ORA_.jpg", width=100)
+
 # Display title and description
 st.markdown("<h1 style='color: #007FA4; text-align: center;'> Hey, come posso aiutarti?</h1>", unsafe_allow_html=True)
 st.write("<h4 style='text-align: center;'>Sono RachelBot, l'assistente AI del Kontiki</h4>", unsafe_allow_html=True)
