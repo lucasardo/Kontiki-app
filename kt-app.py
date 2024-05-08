@@ -13,7 +13,7 @@ Settings.llm = MistralAI(model="mistral-small", api_key=mistral_key)
 Settings.embed_model = MistralAIEmbedding(model_name='mistral-embed', api_key=mistral_key)
 
 # rebuild storage context
-storage_context = StorageContext.from_defaults(persist_dir="Store")
+storage_context = StorageContext.from_defaults(persist_dir="NewStore")
 index = load_index_from_storage(storage_context, embed_model=MistralAIEmbedding(model_name='mistral-embed', api_key=mistral_key))
 query_engine = index.as_query_engine(similarity_top_k=2)
 
