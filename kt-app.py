@@ -28,7 +28,7 @@ st.set_page_config(
 
 # Display title and description
 st.markdown("<h1 style='color: #007FA4; text-align: center;'> Chatbot</h1>", unsafe_allow_html=True)
-st.write("<h4 style='color: #F9423A; text-align: center;'>Chiedi a me tutto quello che chiederesti a Rachele, e lasciala dormire!</h4>", unsafe_allow_html=True)
+st.write("<h4 style='text-align: center;'>Chiedi a me tutto quello che chiederesti a Rachele, e lasciala dormire!</h4>", unsafe_allow_html=True)
 
 # Initialize chat history
 if "messages" not in st.session_state:
