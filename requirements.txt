@@ -1,0 +1,3 @@
+llama-index-core
+llama-index-llms-mistralai
+llama-index-embeddings-mistralai
