@@ -27,10 +27,25 @@ st.set_page_config(
 )
 
 # Display title and description
-st.markdown("<h1 style='color: #F9423A;'> Chatbot</h1>", unsafe_allow_html=True)
-st.write("Welcome to the ESG Chatbot web app developed by WSP Digital Innovation Italy. "
-         "This web app is designed to help engineers analyze environmental assessments, such as Climate Risk Assessments and Environmental Impact Assessments.")
+st.markdown("<h1 style='color: #007FA4; text-align: center;'> Chatbot</h1>", unsafe_allow_html=True)
+st.write("<h4 style='color: #F9423A; text-align: center;'>Chiedi a me tutto quello che chiederesti a Rachele, e lasciala dormire!</h4>", unsafe_allow_html=True)
 
+
+# Display chat messages from history on app rerun
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+# React to user input
+if prompt := st.chat_input("Cosa vuoi sapere?"):
+    # Display user message in chat message container
+    st.chat_message("user").markdown(prompt)
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+
+with st.chat_message("assistant"):
+        st.markdown(response)
+    
 # Create a text input box for the user to ask a question.
 user_input = st.text_input("What would you like to know?")
 
@@ -39,12 +54,16 @@ if user_input:
     response = query_engine.query(user_input)
     
     # Display the response.
-    st.write(response.response)
-    # Iterate over keys in the metadata dictionary
-    with st.expander("Più info"):
-        for key, value in response.metadata.items():
-            file_name = value.get('file_name')
-            if file_name:
-                st.write("Guarda questo documento --> ", file_name)
-                break  # Exit the loop once the file_name is found
-            
+    response_text = response.response
+    response = f"{response_text}"
+    
+    # Display assistant response in chat message container
+    with st.chat_message("assistant"):
+        st.markdown(response)
+        # Iterate over keys in the metadata dictionary
+        with st.expander("Più info"):
+            for key, value in response.metadata.items():
+                file_name = value.get('file_name')
+                if file_name:
+                    st.write("Guarda questo documento --> ", file_name)
+                    break  # Exit the loop once the file_name is found
