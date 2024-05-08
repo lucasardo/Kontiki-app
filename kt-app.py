@@ -64,7 +64,7 @@ with column2:
         prompt = "Come si fa il turno bar?"
 with column3:
     if st.button("Quali piatti di pasta abbiamo in menù?"):
-        prompt = "Quali piatti di pasta abbiamo in menù?"
+        st.chat_input("Quali piatti di pasta abbiamo in menù?")
     
 # React to user input
 if prompt := st.chat_input("Cosa vuoi sapere?"):
