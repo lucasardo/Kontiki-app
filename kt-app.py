@@ -45,6 +45,6 @@ if user_input:
         for key, value in response.metadata.items():
             file_name = value.get('file_name')
             if file_name:
-                st.write("Guarda questo documento: ", file_name)
+                st.write("Guarda questo documento --> ", file_name)
                 break  # Exit the loop once the file_name is found
             
