@@ -26,7 +26,7 @@ st.set_page_config(
     layout="wide"  # Set layout to wide for better organization
 )
 
-col1, col2, col3 = st.columns([7,6,1])
+col1, col2, col3 = st.columns([6,6,1])
 
 with col1:
     st.write("")
