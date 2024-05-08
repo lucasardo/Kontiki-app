@@ -39,4 +39,12 @@ if user_input:
     response = query_engine.query(user_input)
     
     # Display the response.
-    st.write(response)
+    st.write(response.response)
+    # Iterate over keys in the metadata dictionary
+    with st.expander("Più info"):
+        for key, value in response.metadata.items():
+            file_name = value.get('file_name')
+            if file_name:
+                st.write("Guarda questo documento: ", file_name)
+                break  # Exit the loop once the file_name is found
+            
