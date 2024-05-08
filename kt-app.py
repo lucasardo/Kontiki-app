@@ -44,15 +44,6 @@ st.write("<h6 style='text-align: center;'>Chiedi a me tutto quello che chiederes
 
 st.markdown('#') 
 
-# Initialize chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-    
-# Display chat messages from history on app rerun
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-        
 column1, column2, column3 = st.columns([1,1,1])
 
 #SUggest some prompts. Once clicked, the prompt will be added to the text input box.
@@ -65,7 +56,16 @@ with column2:
 with column3:
     if st.button("Quali piatti di pasta abbiamo in menù?"):
         prompt = "Quali piatti di pasta abbiamo in menù?"
+
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
     
+# Display chat messages from history on app rerun
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+        
 # React to user input
 if prompt := st.chat_input("Cosa vuoi sapere?"):
     # Display user message in chat message container
